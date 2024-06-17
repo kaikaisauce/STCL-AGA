@@ -1,0 +1,31 @@
+## global
+seed: 31
+device: cuda
+mode: train
+best_path: None 
+debug: False  
+
+## data 
+data_dir: /Users/zdk/Desktop/tj2024spring/0024s时空增强自监督学习/AGA02/data/PEMS04
+dataset: PEMS04
+input_length: 12 
+batch_size: 2 #32
+test_batch_size: 2 #32
+graph_file: /Users/zdk/Desktop/tj2024spring/0024s时空增强自监督学习/AGA02/data/PEMS04/adj_mx.npz # 307 x 307
+
+## model                 
+d_output: 3                 
+d_model: 64
+dropout: 0.2
+percent: 0.1                # augumentation percentage  
+shm_temp: 0.5               # temperature for loss of spatial heterogeneity modeling                  
+
+## train
+epochs: 100
+lr_init: 0.001
+early_stop: True
+early_stop_patience: 20
+grad_norm: True
+max_grad_norm: 5
+use_dwa: True         # whether to use dwa for loss balance
+temp: 4               # tempurature parameter in dwa, a larger T means more similer weights
